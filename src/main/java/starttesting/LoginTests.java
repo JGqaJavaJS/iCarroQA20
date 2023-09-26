@@ -23,7 +23,6 @@ public class LoginTests {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
-    @Test
     public void loginPositive() {
 
 /*

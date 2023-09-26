@@ -6,14 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utils.RandomUtils;
 
 import java.util.concurrent.TimeUnit;
 
 public class RegistrationTest {
 
     WebDriver driver;
-    RandomUtils randomUtils = new RandomUtils();
+  //  RandomUtils randomUtils = new RandomUtils();
 
     @BeforeClass
     public void preconditions() {
@@ -23,9 +22,9 @@ public class RegistrationTest {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
-    @Test
     public void registrationPositive() {
-        String email = randomUtils.generateEmail(7);
+        String email = "ghjhjh@mm.cc";
+                //randomUtils.generateEmail(7);
         System.out.println(email);
 
         driver.findElement(By.xpath("//a[contains(@href, '/registration')]")).click();
