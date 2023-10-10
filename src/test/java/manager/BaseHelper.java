@@ -1,8 +1,7 @@
 package manager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -53,4 +52,25 @@ public class BaseHelper {
             return false;
         }
     }
+
+    public void jsClickBase(String locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(locator);
+    }
+
+    public void clickByXY(By locator, int down, int right) {  // 10  12
+                Rectangle rect = findElementBase(locator).getRect();
+        int x = rect.getX() + rect.getWidth() / 8;
+        int y = rect.getY() + rect.getHeight() / 2;
+        Actions actions = new Actions(driver);
+        actions.moveByOffset(x, y).click().perform();
+
+//        Rectangle rectangle = findElementBase(locator).getRect();
+//        int x = rectangle.getX() + (rectangle.getWidth() / right);
+//        int y =  (rectangle.getY() + (rectangle.getHeight() / down));
+//
+//        Actions actions = new Actions(driver);
+//        actions.moveByOffset(x,y).click().perform();
+    }
+
 }
