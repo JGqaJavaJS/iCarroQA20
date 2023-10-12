@@ -23,7 +23,7 @@ public class UserHelper extends BaseHelper{
     By inputEmailReg = By.xpath("//input[@id='email']");
     By inputPasswordReg = By.xpath("//input[@id='password']");
     String btnRegNewUser = "document.querySelector('#terms-of-use').click();";
-    By checkBoxReg = By.xpath("//label[@for='name']");
+    By checkBoxReg = By.xpath("//label[@for='terms-of-use']");
     By btnUallaReg = By.xpath("//button[@type='submit']");
     By textPopUpSuccessRegH1 = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
 
@@ -58,7 +58,8 @@ public class UserHelper extends BaseHelper{
         typeTextBase(inputLastNameReg, user.getLastName());
         typeTextBase(inputEmailReg, user.getEmail());
         typeTextBase(inputPasswordReg, user.getPassword());
-        clickByXY(checkBoxReg, 10,12);
+        //clickBase(checkBoxReg);
+        clickByXY(checkBoxReg, 5,15);
         //jsClickBase(btnRegNewUser);
         clickBase(btnUallaReg);
     }

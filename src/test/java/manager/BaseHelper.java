@@ -58,10 +58,10 @@ public class BaseHelper {
         js.executeScript(locator);
     }
 
-    public void clickByXY(By locator, int down, int right) {  // 10  12
-                Rectangle rect = findElementBase(locator).getRect();
-        int x = rect.getX() + rect.getWidth() / 8;
-        int y = rect.getY() + rect.getHeight() / 2;
+    public void clickByXY(By locator, int down, int right) {
+        Rectangle rect = findElementBase(locator).getRect();
+        int x = rect.getX() + (rect.getWidth() / right);
+        int y = rect.getY() + (rect.getHeight() / down);
         Actions actions = new Actions(driver);
         actions.moveByOffset(x, y).click().perform();
 
