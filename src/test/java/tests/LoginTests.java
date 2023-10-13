@@ -13,15 +13,21 @@ public class LoginTests extends BaseTest{
 
     @BeforeTest
     public void preconditionsLogin() {
+      //  app.navigateToMainPage();
         logoutIflogin();
 
         // user login
         // user open web not login
     }
-    
+
     @AfterTest
     public void postconditionsLogin() {
         app.getUserHelper().clickOkPopUpSuccessLogin();
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Test
@@ -42,10 +48,6 @@ public class LoginTests extends BaseTest{
 
     @Test
     public void positiveLogin() {
-        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
-                .email("testqa20@gmail.com")
-                .password("123456Aa$")
-                .build();
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
