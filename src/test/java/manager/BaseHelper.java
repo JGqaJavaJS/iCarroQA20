@@ -77,4 +77,8 @@ public class BaseHelper {
 //        actions.moveByOffset(x,y).click().perform();
     }
 
+    public void refreshPage() {
+        driver.navigate().refresh();;
+    }
+
 }

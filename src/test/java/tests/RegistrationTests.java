@@ -8,19 +8,19 @@ import org.testng.annotations.Test;
 
 public class RegistrationTests extends BaseTest{
 
-//    @BeforeTest
-//    public void preconditionsLogin() {
-//        //  app.navigateToMainPage();
-//        logoutIflogin();
-//
-//        // user login
-//        // user open web not login
-//    }
-//
-//    @AfterTest
-//    public void postconditionsLogin() {
-//        app.getUserHelper().clickOkPopUpSuccessLogin();
-//    }
+    @BeforeTest
+    public void preconditionsLogin() {
+        //  app.navigateToMainPage();
+        logoutIflogin();
+
+        // user login
+        // user open web not login
+    }
+
+    @AfterTest
+    public void postconditionsLogin() {
+        app.getUserHelper().clickOkPopUpSuccessLogin();
+    }
 
     @Test
     public void positiveRegistration() {

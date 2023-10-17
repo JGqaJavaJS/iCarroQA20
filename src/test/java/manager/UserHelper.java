@@ -89,20 +89,21 @@ public class UserHelper extends BaseHelper{
     }
 
     public void clickOkPopUpSuccessLogin() {
+        // clickBase(btnOkPopUp);
        // typeTextBase(textPopUpSuccessRegH1, String.valueOf(Keys.ESCAPE));
-        // jsClickBase(btnOkPopUpStr);
+         jsClickBase(btnOkPopUpStr);
        // clickByXY(btnOkPopUp, 0.5, 2);
-        clickBase(textPopUpSuccessRegH1);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        //      clickBase(textPopUpSuccessRegH1);
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        Actions actions = new Actions(driver);
-        // Use the sendKeys method to simulate pressing the "Enter" key on the active element
-        actions.sendKeys(Keys.TAB).perform();
-        actions.sendKeys(Keys.ESCAPE).perform();
+//        Actions actions = new Actions(driver);
+//        // Use the sendKeys method to simulate pressing the "Enter" key on the active element
+//        actions.sendKeys(Keys.TAB).perform();
+//        actions.sendKeys(Keys.ESCAPE).perform();
     }
 
     public boolean validateMessageIncorrectEmailReg() {
