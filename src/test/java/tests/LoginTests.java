@@ -28,14 +28,14 @@ public class LoginTests extends BaseTest{
 //        }
     }
 
-    @Test
+    @Test(priority = 1, invocationCount = 2)
     public void positiveLoginUserDTO() {
         UserDTO userDTO = new UserDTO("testqa20@gmail.com", "123456Aa$");
         app.getUserHelper().login(userDTO);
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test
+    @Test(priority = 2)
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")
@@ -44,18 +44,18 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test
+    @Test(priority = 3)
     public void positiveLogin() {
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test
+    @Test(priority = 4)
     public void negativePasswordWithoutSymbol() {
         UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
@@ -65,7 +65,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
-    @Test
+    @Test(priority = 5)
     public void negativePasswordWithoutNumbers() {
         UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
@@ -75,7 +75,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
-    @Test
+    @Test(priority = 6)
     public void negativePasswordWithoutLetters() {
         UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
