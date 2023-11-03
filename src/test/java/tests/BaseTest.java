@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import utils.RandomUtils;
-
 import java.lang.reflect.Method;
 
 @Listeners(TestNGListener.class)
@@ -20,6 +19,7 @@ public class BaseTest {
 
     static ApplicationManager app = new ApplicationManager();
     RandomUtils randomUtils = new RandomUtils();
+    boolean flagLogin = false, flagPopUp = false;
 
     UserDtoLombok userDtoLombok = UserDtoLombok.builder()
             .email("testqa20@gmail.com")
@@ -34,12 +34,6 @@ public class BaseTest {
     @AfterSuite(alwaysRun = true)
     public void stop() {
         app.tearDown();
-    }
-
-    public void logoutIflogin() {
-            if(app.getUserHelper().btnLogoutExist()) {
-                app.getUserHelper().logout();
-            }
     }
 
     @BeforeMethod

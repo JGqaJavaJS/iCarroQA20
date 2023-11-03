@@ -4,9 +4,7 @@ import dto.UserDTO;
 import dto.UserDTOWith;
 import dto.UserDtoLombok;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class UserHelper extends BaseHelper{
 
@@ -70,8 +68,8 @@ public class UserHelper extends BaseHelper{
         typeTextBase(inputEmailReg, user.getEmail());
         typeTextBase(inputPasswordReg, user.getPassword());
         //clickBase(checkBoxReg);
-        clickByXY(checkBoxReg, 5,15);
-        //jsClickBase(btnRegNewUser);
+      //  clickByXY(checkBoxReg, 5,15);
+        jsClickBase(btnRegNewUser);
         clickBase(btnUallaReg);
     }
 

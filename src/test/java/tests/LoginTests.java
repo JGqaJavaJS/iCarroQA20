@@ -8,30 +8,29 @@ import org.testng.annotations.*;
 
 public class LoginTests extends BaseTest{
 
-    @BeforeMethod
-    public void preconditionsLogin() {
-       // app.getUserHelper().refreshPage();
-        //  app.navigateToMainPage();
-        logoutIflogin();
-
-        // user login
-        // user open web not login
-    }
-
     @AfterMethod
     public void postconditionsLogin() {
-        app.getUserHelper().clickOkPopUpSuccessLogin();
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        if(flagPopUp) {
+            flagPopUp = false;
+            app.getUserHelper().clickOkPopUpSuccessLogin();
+        }
+        if(flagLogin) {
+            flagLogin = false;
+            app.getUserHelper().logout();
+        }
     }
 
     @Test(priority = 1, invocationCount = 2)
     public void positiveLoginUserDTO() {
         UserDTO userDTO = new UserDTO("testqa20@gmail.com", "123456Aa$");
         app.getUserHelper().login(userDTO);
+        flagLogin = true;
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
@@ -41,17 +40,26 @@ public class LoginTests extends BaseTest{
                 .withEmail("testqa20@gmail.com")
                 .withPassword("123456Aa$");
         app.getUserHelper().login(userDTOWith);
+        flagLogin = true;
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
     @Test(priority = 3)
     public void positiveLogin() {
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        flagLogin = true;
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
@@ -62,6 +70,12 @@ public class LoginTests extends BaseTest{
                 .password("123456Aaa")
                 .build();
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
@@ -72,6 +86,12 @@ public class LoginTests extends BaseTest{
                 .password("ddsdhjAa$")
                 .build();
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
@@ -82,6 +102,12 @@ public class LoginTests extends BaseTest{
                 .password("12345678$")
                 .build();
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        flagPopUp = true;
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 }
