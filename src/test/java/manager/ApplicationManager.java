@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.ConfigProperties;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,7 @@ public class ApplicationManager {
 
     UserHelper userHelper;
     String browser;
+    String url = ConfigProperties.getProperty("url");
     public ApplicationManager() {
         browser = System.getProperty("browser", BrowserType.CHROME);
     }
@@ -35,16 +37,16 @@ public class ApplicationManager {
             logger.info("started tests in firefox driver");
         }
 
-        driver.navigate().to("https://ilcarro.web.app/search");
+        driver.navigate().to(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.register(new WDListener());
         userHelper = new UserHelper(driver);
-        logger.info("navigated to the url: https://ilcarro.web.app/search");
+        logger.info("navigated to the url: " + url);
     }
 
     public void navigateToMainPage() {
-        driver.navigate().to("https://ilcarro.web.app/search");
+        driver.navigate().to(url);
     }
 
     public UserHelper getUserHelper() {
