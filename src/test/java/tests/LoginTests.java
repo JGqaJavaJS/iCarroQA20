@@ -1,5 +1,6 @@
 package tests;
 
+import data.DataProviderLogin;
 import dto.UserDTO;
 import dto.UserDTOWith;
 import dto.UserDtoLombok;
@@ -50,9 +51,9 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test(groups={"smoke", "regression"})
-    public void positiveLogin() {
-        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+    @Test(dataProvider = "loginCSV", dataProviderClass = DataProviderLogin.class, groups = {"smoke"})
+    public void positiveLogin(UserDtoLombok user) {
+        app.getUserHelper().loginUserDtoLombok(user);
         flagLogin = true;
         flagPopUp = true;
         try {
@@ -63,13 +64,26 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test(priority = 4)
-    public void negativePasswordWithoutSymbol() {
-        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
-                .email("testqa20@gmail.com")
-                .password("123456Aaa")
-                .build();
-        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+    @Test(dataProvider = "positiveDataLogin", dataProviderClass = DataProviderLogin.class)
+    public void positiveLogin2(UserDtoLombok user) {
+        app.getUserHelper().loginUserDtoLombok(user);
+        flagLogin = true;
+        flagPopUp = true;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
+    }
+
+    @Test(dataProvider = "negativePasswordDataLogin", dataProviderClass = DataProviderLogin.class)
+    public void negativePasswordWithoutSymbol(UserDtoLombok user) {
+//        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
+//                .email("testqa20@gmail.com")
+//                .password("123456Aaa")
+//                .build();
+        app.getUserHelper().loginUserDtoLombok(user);
         flagPopUp = true;
         try {
             Thread.sleep(1000);
