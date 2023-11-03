@@ -34,7 +34,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test(priority = 2)
+    @Test(groups={"smoke"})
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")
@@ -50,7 +50,7 @@ public class LoginTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-    @Test(priority = 3)
+    @Test(groups={"smoke", "regression"})
     public void positiveLogin() {
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         flagLogin = true;

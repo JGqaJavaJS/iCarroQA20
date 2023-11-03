@@ -2,6 +2,8 @@ package manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +18,23 @@ public class ApplicationManager {
   EventFiringWebDriver driver;
 
     UserHelper userHelper;
+    String browser;
+    public ApplicationManager() {
+        browser = System.getProperty("browser", BrowserType.CHROME);
+    }
 
     public void init() {
        // driver = new ChromeDriver();
-        driver = new EventFiringWebDriver(new ChromeDriver());
+       // driver = new EventFiringWebDriver(new ChromeDriver());
+
+        if(browser.equals(BrowserType.CHROME)) {
+            driver = new EventFiringWebDriver(new ChromeDriver());
+            logger.info("created chrome browser");
+        }else if (browser.equals(BrowserType.FIREFOX)) {
+            driver = new EventFiringWebDriver(new FirefoxDriver());
+            logger.info("started tests in firefox driver");
+        }
+
         driver.navigate().to("https://ilcarro.web.app/search");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
