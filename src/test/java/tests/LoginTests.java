@@ -27,11 +27,11 @@ public class LoginTests extends BaseTest{
         app.getUserHelper().login(userDTO);
         flagLogin = true;
         flagPopUp = true;
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
@@ -43,11 +43,11 @@ public class LoginTests extends BaseTest{
         app.getUserHelper().login(userDTOWith);
         flagLogin = true;
         flagPopUp = true;
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
@@ -56,11 +56,11 @@ public class LoginTests extends BaseTest{
         app.getUserHelper().loginUserDtoLombok(user);
         flagLogin = true;
         flagPopUp = true;
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
@@ -69,11 +69,11 @@ public class LoginTests extends BaseTest{
         app.getUserHelper().loginUserDtoLombok(user);
         flagLogin = true;
         flagPopUp = true;
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 

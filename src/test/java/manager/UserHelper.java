@@ -5,6 +5,10 @@ import dto.UserDTOWith;
 import dto.UserDtoLombok;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.regex.Pattern;
 
 public class UserHelper extends BaseHelper{
 
@@ -54,6 +58,8 @@ public class UserHelper extends BaseHelper{
     }
 
     public boolean validatePopUpMessageSuccessAfterLogin() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.textMatches(textSuccessLoginPopUp, Pattern.compile("[\\w]*")));
         return isTextEqual(textSuccessLoginPopUp, "Logged in success");
     }
 

@@ -39,7 +39,7 @@ public class ApplicationManager {
 
         driver.navigate().to(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.register(new WDListener());
         userHelper = new UserHelper(driver);
         logger.info("navigated to the url: " + url);
@@ -51,6 +51,13 @@ public class ApplicationManager {
 
     public UserHelper getUserHelper() {
         return userHelper;
+    }
+
+    public EventFiringWebDriver getDriver() {
+        if(driver == null) {
+            init();
+        }
+        return driver;
     }
 
     public void tearDown() {
