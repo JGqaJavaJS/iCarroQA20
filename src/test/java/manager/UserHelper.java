@@ -95,6 +95,8 @@ public class UserHelper extends BaseHelper{
     public void clickOkPopUpSuccessLogin() {
         // clickBase(btnOkPopUp);
        // typeTextBase(textPopUpSuccessRegH1, String.valueOf(Keys.ESCAPE));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.textMatches(textSuccessLoginPopUp, Pattern.compile("[\\w]*")));
          jsClickBase(btnOkPopUpStr);
        // clickByXY(btnOkPopUp, 0.5, 2);
         //      clickBase(textPopUpSuccessRegH1);

@@ -19,6 +19,7 @@ public class ApplicationManager {
   EventFiringWebDriver driver;
 
     UserHelper userHelper;
+    CarHelper carHelper;
     String browser;
     String url = ConfigProperties.getProperty("url");
     public ApplicationManager() {
@@ -42,6 +43,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.register(new WDListener());
         userHelper = new UserHelper(driver);
+        carHelper = new CarHelper(driver);
         logger.info("navigated to the url: " + url);
     }
 
@@ -51,6 +53,9 @@ public class ApplicationManager {
 
     public UserHelper getUserHelper() {
         return userHelper;
+    }
+    public CarHelper getCarHelper() {
+        return carHelper;
     }
 
     public EventFiringWebDriver getDriver() {

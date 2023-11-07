@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ccdfe9-75ea-401b-81d3-8626cef2bb5b" name="Changes" comment="upd fo HW15">
+    <list default="true" id="e7ccdfe9-75ea-401b-81d3-8626cef2bb5b" name="Changes" comment="L16 explicit wait">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlewsettings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gradlewsettings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dto/AddCarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dto/AddCarDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/manager/BaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manager/BaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/manager/CarHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manager/CarHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/manager/UserHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/manager/UserHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CarTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CarTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/RandomUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/screenshots/screenshot-2023-11-03_10_30_17.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +85,31 @@
       <recent name="manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LoginTests">
+  <component name="RunManager" selected="Gradle.CarTests.addNewCarTest">
+    <configuration name="CarTests.addNewCarTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.CarTests.addNewCarTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <configuration name="LoginTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -123,30 +148,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.LoginTests.negativePasswordWithoutSymbol&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <ForceTestExec>true</ForceTestExec>
-      <method v="2" />
-    </configuration>
-    <configuration name="LoginTests.positiveLogin" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.LoginTests.positiveLogin&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -207,11 +208,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CarTests.addNewCarTest" />
         <item itemvalue="Gradle.LoginTests" />
         <item itemvalue="Gradle.Tests in 'tests'" />
         <item itemvalue="Gradle.LoginTests.positiveLogin2" />
         <item itemvalue="Gradle.LoginTests.negativePasswordWithoutSymbol" />
-        <item itemvalue="Gradle.LoginTests.positiveLogin" />
       </list>
     </recent_temporary>
   </component>
@@ -360,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699080022253</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="L16 explicit wait">
+      <option name="closed" value="true" />
+      <created>1699377157403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699377157403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -382,7 +391,8 @@
     <MESSAGE value="add properties (+be4 in build.gradle)" />
     <MESSAGE value="addd DataProvider and csv file with the data" />
     <MESSAGE value="upd fo HW15" />
-    <option name="LAST_COMMIT_MESSAGE" value="upd fo HW15" />
+    <MESSAGE value="L16 explicit wait" />
+    <option name="LAST_COMMIT_MESSAGE" value="L16 explicit wait" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
