@@ -88,7 +88,7 @@ public class CarHelper extends BaseHelper{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10).toMillis());
         WebElement autoCompleteResult = wait.until(ExpectedConditions.visibilityOfElementLocated(containerCities));
         Actions builder = new Actions(driver);
-        builder.moveToElement(autoCompleteResult).perform();
+       // builder.moveToElement(autoCompleteResult).perform();
         builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
     }
 }
